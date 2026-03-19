@@ -4,6 +4,7 @@ using namespace std;
 /*--------------------------------------------------------------------------------------------------------------------------*/
 /** * MACROS & TYPEDEFS 
  **/
+#define int           long long  // Global int as long long
 #define fastio()      ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL)
 #define nline         "\n"
 #define pb            push_back
@@ -14,20 +15,17 @@ using namespace std;
 #define sz(x)         ((int)(x).size())
 #define all(x)        (x).begin(), (x).end()
 
-typedef long long ll;
 typedef unsigned long long ull;
 typedef long double lld;
 
-/**
- * CONSTANTS
- **/
-const ll MOD  = 1e9 + 7;
-const ll MOD1 = 998244353;
-const ll INF  = 1e18;
-const lld PI  = 3.14159265358979323846;
+/** * CONSTANTS **/
+const int MOD  = 1e9 + 7;
+const int MOD1 = 998244353;
+const int INF  = 1e18;
+const lld PI   = 3.14159265358979323846;
 
 /**
- * DEBUGGING SUITE
+ * ENHANCED DEBUGGING SUITE
  **/
 #ifndef ONLINE_JUDGE
 #define debug(x) cerr << #x <<" "; _print(x); cerr << endl;
@@ -35,7 +33,6 @@ const lld PI  = 3.14159265358979323846;
 #define debug(x)
 #endif
 
-void _print(ll t)     {cerr << t;}
 void _print(int t)    {cerr << t;}
 void _print(string t) {cerr << t;}
 void _print(char t)   {cerr << t;}
@@ -45,27 +42,50 @@ void _print(ull t)    {cerr << t;}
 
 template <class T, class V> void _print(pair <T, V> p);
 template <class T> void _print(vector <T> v);
+template <class T> void _print(set <T> v);
+template <class T, class V> void _print(map <T, V> v);
+template <class T> void _print(multiset <T> v);
 template <class T, class V> void _print(pair <T, V> p) {cerr << "{"; _print(p.ff); cerr << ","; _print(p.ss); cerr << "}";}
 template <class T> void _print(vector <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
+template <class T> void _print(set <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
+template <class T> void _print(multiset <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
+template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
 
 /*--------------------------------------------------------------------------------------------------------------------------*/
 
-// Forward Declaration
+// Forward Declaration for Bottom-Level Solve
 void solve();
 
-int main() {
+/**
+ * USACO & I/O HANDLER
+ **/
+void setIO(string name = "") {
     fastio();
-
+    // High precision for AtCoder/USACO geometry/floating-point tasks
+    cout << fixed << setprecision(15); 
 #ifndef ONLINE_JUDGE
     freopen("err.txt", "w", stderr);
 #endif
+#ifdef ONLINE_JUDGE
+    if (!name.empty()) {
+        freopen((name + ".in").c_str(), "r", stdin);
+        freopen((name + ".out").c_str(), "w", stdout);
+    }
+#endif
+}
+
+int32_t main() {
+    /** * CONFIGURATION:
+     * 1. USACO: setIO("problemname"); and keep t = 1;
+     * 2. CF/AtCoder: setIO(""); and uncomment cin >> t;
+     **/
+    setIO("");
 
     int t = 1;
-    cint>>t;
+    cin >> t; 
+    
     while (t--) {
-        debug(t);
         solve();
-
     }
 
     return 0;
@@ -77,5 +97,4 @@ int main() {
  **/
 void solve() {
 }
-
 
