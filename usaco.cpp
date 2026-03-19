@@ -2,9 +2,8 @@
 using namespace std;
 
 /*--------------------------------------------------------------------------------------------------------------------------*/
-/** * MACROS & TYPEDEFS 
- **/
-#define int           long long  // Global int as long long
+/** * MACROS & TYPEDEFS **/
+#define int           long long
 #define fastio()      ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL)
 #define nline         "\n"
 #define pb            push_back
@@ -27,7 +26,7 @@ const lld PI   = 3.14159265358979323846;
 /**
  * ENHANCED DEBUGGING SUITE
  **/
-#ifndef ONLINE_JUDGE
+#ifdef LOCAL
 #define debug(x) cerr << #x <<" "; _print(x); cerr << endl;
 #else
 #define debug(x)
@@ -53,40 +52,33 @@ template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i
 
 /*--------------------------------------------------------------------------------------------------------------------------*/
 
-// Forward Declaration for Bottom-Level Solve
 void solve();
 
 /**
- * USACO & I/O HANDLER
+ * I/O HANDLER
  **/
 void setIO(string name = "") {
     fastio();
-    // High precision for AtCoder/USACO geometry/floating-point tasks
     cout << fixed << setprecision(15); 
-#ifndef ONLINE_JUDGE
-    freopen("err.txt", "w", stderr);
-#endif
-#ifdef ONLINE_JUDGE
+    
+#ifndef LOCAL
+    // On Judge: Only use File I/O if a name is provided (USACO style)
     if (!name.empty()) {
         freopen((name + ".in").c_str(), "r", stdin);
         freopen((name + ".out").c_str(), "w", stdout);
     }
 #endif
-    if (!name.empty()) {
-        freopen((name + ".in").c_str(), "r", stdin);
-        freopen((name + ".out").c_str(), "w", stdout);
-    }
+    // If LOCAL is defined, or name is empty on judge, it uses Standard I/O.
 }
 
 int32_t main() {
-    /** * CONFIGURATION:
-     * 1. USACO: setIO("problemname"); and keep t = 1;
-     * 2. CF/AtCoder: setIO(""); and uncomment cin >> t;
+    /** * Standard: setIO(""); 
+     * USACO:    setIO("problemname"); 
      **/
-    setIO("closing");
+    setIO("");
 
     int t = 1;
-    /* cin >> t;  */
+    cin >> t; 
     
     while (t--) {
         solve();
@@ -99,12 +91,6 @@ int32_t main() {
 /**
  * CORE LOGIC
  **/
-/*--------------------------------------------------------------------------------------------------------------------------*/
-/**
- * CORE LOGIC: USACO Silver - Closing the Farm
- **/
-
-
 void solve() {
+    
 }
-
