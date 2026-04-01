@@ -75,11 +75,13 @@ int32_t main() {
     /** * Standard: setIO(""); 
      * USACO:    setIO("problemname"); 
      **/
+    /* usaco */
     setIO("");
 
     int t = 1;
     cin >> t; 
     
+    /* tinp */
     while (t--) {
         solve();
     }
