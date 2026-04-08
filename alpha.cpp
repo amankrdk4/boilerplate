@@ -83,6 +83,7 @@ int32_t main() {
     
     /* tinp */
     while (t--) {
+        debug(t);
         solve();
     }
 
