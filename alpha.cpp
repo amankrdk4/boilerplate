@@ -82,8 +82,8 @@ int32_t main() {
     cin >> t; 
     
     /* tinp */
-    while (t--) {
-        debug(t);
+    for(int test=1;test<=t;test++){
+        debug(test);
         solve();
     }
 
@@ -95,5 +95,5 @@ int32_t main() {
  * CORE LOGIC
  **/
 void solve() {
-    
+
 }
