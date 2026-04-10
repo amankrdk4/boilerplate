@@ -19,7 +19,7 @@
  * ONE CODE TO BRING THEM ALL,
  * AND IN THE TERMINAL BIND THEM.
  *
- * Author: Aman Kumar
+ * Author:amankrdk4
  * _____________________________________________________________
  */
 #include <bits/stdc++.h>
