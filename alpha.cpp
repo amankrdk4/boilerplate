@@ -90,6 +90,47 @@ long long modinv(long long n) {
     return invpower(n, MOD - 2);
 }
 
+template<typename T>
+void sieve(vector<T>& is_prime, int n) {
+    is_prime.assign(n + 1, 1);
+    if (n >= 0) is_prime[0] = 0;
+    if (n >= 1) is_prime[1] = 0;
+    for (int p = 2; (long long)p * p <= n; p++) {
+        if (is_prime[p]) {
+            for (int i = (long long)p * p; i <= n; i += p)
+                is_prime[i] = 0;
+        }
+    }
+}
+/** * factorial CONSTANTS **/
+const int MAXN = 1e6 + 5;
+int fact[MAXN], invFact[MAXN];
+bool is_precomputed = false;
+void precompute() {
+    if (is_precomputed) return;
+    fact[0] = 1;
+    for (int i = 1; i < MAXN; i++) 
+        fact[i] = (fact[i - 1] * i) % MOD;
+
+    invFact[MAXN - 1] = modinv(fact[MAXN - 1]);
+    for (int i = MAXN - 2; i >= 0; i--) 
+        invFact[i] = (invFact[i + 1] * (i + 1)) % MOD;
+    
+    is_precomputed = true;
+}
+
+int nCr(int n, int r) {
+    if (r < 0 || r > n) return 0;
+    if (!is_precomputed) precompute();
+    return (((fact[n] * invFact[r]) % MOD) * invFact[n - r]) % MOD;
+}
+
+int nPr(int n, int r) {
+    if (r < 0 || r > n) return 0;
+    if (!is_precomputed) precompute();
+    return (fact[n] * invFact[n - r]) % MOD;
+}
+
 void solve();
 
 /**
