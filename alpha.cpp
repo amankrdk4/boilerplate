@@ -42,8 +42,7 @@ typedef unsigned long long ull;
 typedef long double lld;
 
 /** * CONSTANTS **/
-const int MOD  = 1e9 + 7;
-const int MOD1 = 998244353;
+static int MOD  = 1e9 + 7;
 const int INF  = 1e18;
 const lld PI   = 3.14159265358979323846;
 
@@ -76,7 +75,7 @@ template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i
 
 /*--------------------------------------------------------------------------------------------------------------------------*/
 /* important functions for cp */
-long long power(long long base, long long exp) {
+long long invpower(long long base, long long exp) {
     long long res = 1;
     base %= MOD;
     while (exp > 0) {
@@ -88,7 +87,7 @@ long long power(long long base, long long exp) {
 }
 
 long long modinv(long long n) {
-    return power(n, MOD - 2);
+    return invpower(n, MOD - 2);
 }
 
 void solve();
