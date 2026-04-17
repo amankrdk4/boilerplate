@@ -189,5 +189,6 @@ int32_t main() {
  * CORE LOGIC
  **/
 void solve() {
+    //calling out all autobots
 
 }
