@@ -61,6 +61,7 @@ void _print(char t)   {cerr << t;}
 void _print(lld t)    {cerr << t;}
 void _print(double t) {cerr << t;}
 void _print(ull t)    {cerr << t;}
+void _print(bool t)   {cerr << (t ? "true" : "false");}
 
 template <class T, class V> void _print(pair <T, V> p);
 template <class T> void _print(vector <T> v);
