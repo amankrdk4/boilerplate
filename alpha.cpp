@@ -38,6 +38,7 @@ using namespace std;
 #define sz(x)         ((int)(x).size())
 #define all(x)        (x).begin(), (x).end()
 
+typedef long long ll;
 typedef unsigned long long ull;
 typedef long double lld;
 
