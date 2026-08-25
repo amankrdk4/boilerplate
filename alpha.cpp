@@ -55,6 +55,16 @@ const lld PI   = 3.14159265358979323846;
 #define debug(x)
 #endif
 
+#ifdef LOCAL
+auto time_start = chrono::high_resolution_clock::now();
+void print_execution_time() {
+    auto time_end = chrono::high_resolution_clock::now();
+    chrono::duration<double> diff = time_end - time_start;
+    cerr << nline << "--------------------------" << nline;
+    cerr << "Runtime: " << fixed << setprecision(6) << diff.count() << " s" << nline;
+}
+#endif
+
 void _print(int t)    {cerr << t;}
 void _print(string t) {cerr << t;}
 void _print(char t)   {cerr << t;}
@@ -101,36 +111,12 @@ template<typename T> T modsub(T a, T b) { return ((a % MOD) - (b % MOD) + MOD) %
 template<typename T> T modmul(T a, T b) { return ((a % MOD) * (b % MOD)) % MOD; }
 template<typename T> T moddiv(T a, T b) { return modmul(a, modinv(b)); }
 
-template<typename T>
-void sieve(vector<T>& is_prime, int n) {
-    is_prime.assign(n + 1, 1);
-    if (n >= 0) is_prime[0] = 0;
-    if (n >= 1) is_prime[1] = 0;
-    for (int p = 2; (long long)p * p <= n; p++) {
-        if (is_prime[p]) {
-            for (int i = p * p; i <= n; i += p)
-                is_prime[i] = 0;
-        }
-    }
-}
 
 /** * COMBINATORICS & FACTORIALS **/
 const int MAXN = 1e6 + 5;
 int fact[MAXN], invFact[MAXN];
 bool is_precomputed = false;
 
-void precompute() {
-    if (is_precomputed) return;
-    fact[0] = 1;
-    for (int i = 1; i < MAXN; i++) 
-        fact[i] = modmul((int)fact[i - 1], i);
-
-    invFact[MAXN - 1] = modinv((int)fact[MAXN - 1]);
-    for (int i = MAXN - 2; i >= 0; i--) 
-        invFact[i] = modmul((int)invFact[i + 1], i + 1);
-    
-    is_precomputed = true;
-}
 
 template<typename T>
 T nCr(T n, T r) {
@@ -166,6 +152,9 @@ void setIO(string name = "") {
 }
 
 int32_t main() {
+#ifdef LOCAL
+    atexit(print_execution_time);
+#endif
     /** * Standard: setIO(""); 
      * USACO:    setIO("problemname"); 
      **/
