@@ -27,7 +27,6 @@ using namespace std;
 
 /*--------------------------------------------------------------------------------------------------------------------------*/
 /** * MACROS & TYPEDEFS **/
-#define int           long long
 #define fastio()      ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL)
 #define nline         "\n"
 #define pb            push_back
@@ -43,8 +42,8 @@ typedef unsigned long long ull;
 typedef long double lld;
 
 /** * CONSTANTS **/
-static int MOD  = 1e9 + 7;
-const int INF  = 1e18;
+static ll MOD  = 1e9 + 7;
+const ll INF  = 1e18;
 const lld PI   = 3.14159265358979323846;
 
 /**
@@ -67,6 +66,7 @@ void print_execution_time() {
 #endif
 
 void _print(int t)    {cerr << t;}
+void _print(ll t)    {cerr << t;}
 void _print(string t) {cerr << t;}
 void _print(char t)   {cerr << t;}
 void _print(lld t)    {cerr << t;}
@@ -146,5 +146,4 @@ int32_t main() {
  **/
 void solve() {
     //calling out all autobots
-
 }
